@@ -1,0 +1,102 @@
+
+*{
+  font-family: monospace;
+}
+
+.forml img {
+  width: 150px;
+  position: absolute;
+  top: 15px;
+}
+
+.forml {
+position: relative;
+background-color: grey;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+flex: 1;
+}
+
+.btn {
+  font-family: monospace;
+  background-color: rgb(28,28,30);
+  color: grey;
+  border: none;
+  border-radius: 8px;
+  width: 8vw;
+  height: 32px;
+  transition: .3s;
+  margin-top:10px ;
+}
+
+.btn:hover {
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 0 .15vw skyblue;
+  color: #fff;
+}
+
+
+.input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 500;
+  font-size: 1vw;
+  color: #fff;
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  width: 100%;
+  max-width: 250px;
+  transition: .4s;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 .15vw skyblue;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.input-group  input {
+  margin:5px 0;
+}
+
+
+
+hr { display: flex;
+justify-content: center;
+flex-direction:column;
+color: rgb(28,28,30);
+width: 25%;
+margin: 12px 0;
+}
+.forml p {
+  font-size: 13px;
+}
+p span {
+  font-size: 11px;
+}
+
+.form-container {
+display: flex;
+flex-direction: row;
+height: 100vh;
+width: 100%;
+}
+
+
+.login-btn {
+  
+}
