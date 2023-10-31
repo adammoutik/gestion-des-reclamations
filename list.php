@@ -8,8 +8,8 @@
                 <th>Lieu et Description</th>
                 <th>Nom Prenom</th>
                 <th>Departement</th>
-                <th>Date de reclamation</th>
                 <th>Etat</th>
+                <th>Date de reclamation</th>
                 <th>Actions</th>
                 </tr>
             </thead>
@@ -26,19 +26,22 @@
                 <td><?php echo $rows['titre']; ?></td> 
                 <td><?php echo $rows['description']; ?></td>
                 <td><?php $uname = getUserById($rows['eid']);
-        echo "{$uname['fname']} {$uname['lname']}"; ?></td>
+        echo "{$uname['fname']} {$uname['lname']}";
+        if(empty($uname))echo "En Attente";
+        
+        ?></td>
                 <td><?php echo $id; ?></td>
                 <td class="liste"><?php echo $rows['etat']; ?></td>
                 <td><?php echo $rows['date_ouvert']; ?></td>
                 
                 <form id="assignForm" action="listP.php" method="POST">
-                <input type="hidden" name="rid" value="<?php echo $rows['id']; ?>"> <!-- Replace with the actual reclamation ID -->
-                <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> <!-- Replace with the actual employee ID -->
+                <input type="hidden" name="rid" value="<?php echo $rows['id']; ?>">
+                <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> 
                 <td>
                 <?php
-                        if($rows['etat'] == 'Pending' ){
+                        if($rows['etat'] == 'En cours' ){
                     ?>
-                <button type="submit" name="submit">Confirm</button>
+                <span>En attente d'une intervention</span>
                 <?php }else{
                     if($rows['etat'] != 'En cours'){
                         ?>
@@ -62,8 +65,8 @@
                 
                 
                 <form id="assignForm" action="listP.php" method="POST">
-                <input type="hidden" name="rid" value="<?php echo $rows['id']; ?>"> <!-- Replace with the actual reclamation ID -->
-                <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> <!-- Replace with the actual employee ID -->
+                <input type="hidden" name="rid" value="<?php echo $rows['id']; ?>"> 
+                <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> 
                 <td>
                 <?php
                         if($rows['etat'] != 'Done' ){

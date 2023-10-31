@@ -15,8 +15,6 @@
                             background-color: rgb(28,28,30);
                             border-radius: 5px;
                             }
-                    
-
                 </style>
                 <?php
                     if(isset($_GET['error'])){

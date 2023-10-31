@@ -71,12 +71,13 @@ $_SESSION['rid'] = $_GET['rid'];
 
 <style>
   body {
-    background-color: #fff;
+    background-color: #352f44;
   }
     .form-container {
     display: flex;
     align-items: center;
     justify-content: center;
+
 
   }
   .form-container form{
@@ -105,6 +106,12 @@ $_SESSION['rid'] = $_GET['rid'];
   box-shadow: none;
 }
 
+input, textarea {
+  background-color: #5c5470;
+  color: #dbd8e3;
+  border-radius: 20px;
+  padding: 5px;
+}
 </Style>
 
 

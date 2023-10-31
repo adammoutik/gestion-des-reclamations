@@ -21,13 +21,13 @@ if($_GET['success'] == "added"){
   <label class="form__label" for="titre">Titre:</label>
   <input class="input" type="text" name="titre" id="titre" required>
 
-  <label class="form__label" for="departmentIdIndex">Departementx:</label>
+  <label class="form__label" for="departmentIdIndex">Département:</label>
   <input class="input" type="text" name="departmentIdIndex" id="departmentIdIndex" value="<?php echo $_SESSION['dep']; ?>" readonly>
 
   <label class="form__label" for="description">Lieu et Description :</label>
-  <textarea class="input" name="description" id="description" required cols="20" rows="20"></textarea>
+  <textarea class="input" name="description" id="description" required cols="20" rows="10"></textarea>
 
-  <label class="form__label" for="priorite">priorite:</label>
+  <label class="form__label" for="priorite">priorité:</label>
   <select name="priorite" id="priorite" required>
     <option value="low">Low</option>
     <option value="medium">Medium</option>
@@ -49,7 +49,7 @@ if($_GET['success'] == "added"){
       background-color: rgba(255, 255, 255, 0.1);
       padding: 20px;
       border-radius: 10px;
-      margin: 20px;
+      margin: 80px 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
@@ -110,7 +110,9 @@ if($_GET['success'] == "added"){
       background-color: rgba(255, 255, 255, 0.2);
       color: white;
     }
-
+    #priorite{
+      width: 25%;
+    }
 
 </style>
 
