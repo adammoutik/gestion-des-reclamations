@@ -85,18 +85,23 @@
             } ?>
                 </td>
                 
-                </form><!-- if usr is not it do not show this button -->
+                </form>
                 
                 </tr> 
             <?php 
                         } 
                     ?> 
+                    
 
             
 
                     
     </table>
+    
+    
     <script src="js/statusColor.js"></script>
+    <script src="js/table2excel.js"></script>
+    <script src="js/toExcel.js"></script>
     <style>
         .container-list{
             position: relative;

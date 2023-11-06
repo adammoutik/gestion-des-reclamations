@@ -1,3 +1,6 @@
-<?php
 
-echo $_SERVER['SCRIPT_FILENAME'];
+
+<!-- HTML !-->
+<button class="button-12" role="button">Button 12</button>
+
+/* CSS */
