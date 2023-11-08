@@ -7,13 +7,12 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Web site created using PHP && HTML && CSS"
     />
     <link rel="stylesheet" href="css/login.css" />
     <link rel="stylesheet" href="css/nav.css" />
-    <link rel="stylesheet" href="css/profile.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <title>React App</title>
+    <title>Hotel Kenzi Tower</title>
   </head>
   <body>
     <div id="root"></div>

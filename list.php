@@ -8,8 +8,8 @@
                 <th>Lieu et Description</th>
                 <th>Nom Prenom</th>
                 <th>Departement</th>
-                <th>Etat</th>
                 <th>Date de reclamation</th>
+                <th>Etat</th>
                 <th>Actions</th>
                 </tr>
             </thead>
@@ -39,17 +39,19 @@
                 <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> 
                 <td>
                 <?php
-                        if($rows['etat'] == 'En cours' ){
+                        if($rows['etat'] == 'En cours'){
                     ?>
                 <span>En attente d'une intervention</span>
-                <?php }else{
+                <?php }else if(empty($uname)){
+                    echo "Un technicien IT examine le problème";
+                }else
+                {
                     if($rows['etat'] != 'En cours'){
                         ?>
                         <a href="rec-details.php?rid=<?php echo $rows['id'];  ?>&eid=<?php echo $rows['eid'];  ?>">Details...</a>
                         <?php
                     }
-                    /* $uname = getUserById($conn, $rows['eid']);
-                        echo "Completed by {$uname['fname']} {$uname['lname']}"; */
+                    
                     
                 }
             }else if($_SESSION['dep'] == "IT" || $_SESSION['username'] == "admin"){
@@ -58,7 +60,8 @@
                 <td><?php echo $rows['titre']; ?></td> 
                 <td><?php echo $rows['description']; ?></td>
                 <td><?php $uname = getUserById($rows['eid']);
-        echo "{$uname['fname']} {$uname['lname']}"; ?></td>
+        echo "{$uname['fname']} {$uname['lname']}";
+        if(empty($uname))echo "En Attente"; ?>
                 <td><?php echo $id; ?></td>
                 <td><?php echo $rows['date_ouvert']; ?></td>
                 <td class="liste"><?php echo $rows['etat']; ?></td>
@@ -69,14 +72,16 @@
                 <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> 
                 <td>
                 <?php
-                        if($rows['etat'] != 'Done' ){
+                        if($rows['etat'] != 'Done' && $rows['eid'] == NULL){
                     ?>
                 <button type="submit" name="submit">Assign Reclamation</button>
                 <?php }else{
-                    if($rows['etat'] == 'Done'){
+                    if($rows['etat'] == 'Done' || $rows['etat'] == 'Êchec'){
                         ?>
                         <a href="rec-details.php?rid=<?php echo $rows['id'];  ?>&eid=<?php echo $rows['eid'];  ?>&action=details">Details...</a>
                         <?php
+                    }else{
+                        echo "Un technicien IT examine le problème";
                     }
                     
                 }

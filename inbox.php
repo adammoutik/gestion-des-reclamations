@@ -28,7 +28,7 @@
                 while($rows=mysqli_fetch_assoc($resultat)) 
                 { 
                     $id = getDepartementName($rows['departmentId']);
-                    if($rows['eid'] == $_SESSION['id']){
+                    if($rows['eid'] == $_SESSION['id'] && $rows['eid'] != NULL){
                 ?> 
                 <tr> <td><?php echo $rows['id']; ?></td> 
                 <td><?php echo $rows['titre']; ?></td> 

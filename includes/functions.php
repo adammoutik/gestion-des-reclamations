@@ -100,7 +100,7 @@ function loginUser($conn, $username, $password){
             $_SESSION["username"]=$username;
             $_SESSION["firstname"] = $row["fname"];
             $_SESSION["lname"]=$row["lname"];
-            $_SESSION["id"]=$row["eid"];
+            $_SESSION["id"]=$row["uid"];
             $_SESSION["dep"] = getDepartementName($row["departmentId"]);
             $_SESSION["crec"] = $row["completedRecs"];
 
@@ -183,7 +183,6 @@ function loginUser($conn, $username, $password){
     }
 function assignReclamation($conn, $reclamationId, $employeeId)
 {
-    // Check if the reclamation is already assigned to someone
     $query = "SELECT eid FROM reclamatio WHERE id = '$reclamationId'";
     $result = mysqli_query($conn, $query);
     
@@ -191,7 +190,6 @@ function assignReclamation($conn, $reclamationId, $employeeId)
         $row = mysqli_fetch_assoc($result);
     }
     
-    // Update the reclamation table with the assigned employee ID
     $query = "UPDATE reclamatio SET eid = '$employeeId', etat = 'En cours' WHERE id = '$reclamationId'";
     if (mysqli_query($conn, $query)) {
         echo '<script type="text/javascript">
@@ -215,7 +213,7 @@ function getRec($id){
 
 function getUserById( $id) {
     require "includes/db.in.php";
-    $sql = "SELECT fname, lname FROM users WHERE eid = ?";
+    $sql = "SELECT fname, lname FROM users WHERE uid = ?";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {

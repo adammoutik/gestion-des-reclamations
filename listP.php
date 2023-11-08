@@ -30,7 +30,7 @@ include('nav.php');
     flex-direction: column;
     align-items: center;
     padding: 6px 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    font-family: -apple-system, 'Roboto', sans-serif;
     border-radius: 6px;
     border: none;
     margin: 0 auto;
