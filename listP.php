@@ -16,11 +16,9 @@ include('nav.php');
     }
     
     include('list.php');
-    if($_SESSION['dep'] == "IT"):
+    ?>
     
-?>
-<button id="export" onclick="exportData()">Enregistrer q'un fichier excel</button>
-<?php endif;  ?>
+
 <style>
     body{
         background-color: #1c1c1e;

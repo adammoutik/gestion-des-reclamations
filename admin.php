@@ -2,7 +2,7 @@
     include('header.php');
     include('nav.php');
     if(!isset($_SESSION['username']) || $_SESSION['username'] != "admin"){
-        header("Location: login.php");exit(0);
+        header("Location: index.php");exit(0);
     }
     
 
@@ -59,7 +59,9 @@
         background-color: #1c1c1e;
     }
     .admin-container{
-            position: relative;
+                  display: flex;
+          justify-content: center;
+          align-items: center;
             height: 100vh;
             width: 100%;
     }
@@ -74,7 +76,7 @@
             background-color: red;
         }
     .admin-table {
-        position: absolute;
+        
         top: 150px;
         width: 100%;
         border-collapse: collapse;

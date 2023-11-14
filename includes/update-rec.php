@@ -9,6 +9,7 @@ if(isset($_GET['submit'])){
     $rid = $_SESSION['rid'];
     $etat = $_GET['etat'];
     $review = $_GET['Review'];
+    // update reclamation function
     setStatus($conn, $rid, $etat, $review);
     header("location: ../inbox.php");
     exit;

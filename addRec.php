@@ -8,11 +8,14 @@ if (!isset($_SESSION['username'])) {
   exit;
 }
 require "includes/functions.php";
-$rows = getRec( $_GET['rid']);
+if(isset($_GET['rid'])){
+  $rows = getRec( $_GET['rid']);
 $_SESSION['rid'] = $_GET['rid'];
 if($_GET['success'] == "added"){
     echo "<script>alert('Insertion succesful')</script>";
 }
+}
+
 ?>
 
 
@@ -43,14 +46,18 @@ if($_GET['success'] == "added"){
       color: white;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .form__group {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 80px 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 50%;
     }
 
     .form__label {

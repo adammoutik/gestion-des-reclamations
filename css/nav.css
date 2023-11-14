@@ -76,5 +76,23 @@ header li{
 
 
 /*============================================*/
+/*========= footer ========*/
 
-
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: grey;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}

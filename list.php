@@ -1,5 +1,4 @@
 
-<div class="container-list">
     <table id="students-table">
             <thead>
                 <tr>
@@ -10,6 +9,9 @@
                 <th>Departement</th>
                 <th>Date de reclamation</th>
                 <th>Etat</th>
+                <?php $text = $_SESSION['dep'] == "IT" || $_SESSION['username'] == "admin" ? "<th>Priorite</th>":""; 
+                echo $text;
+                ?>
                 <th>Actions</th>
                 </tr>
             </thead>
@@ -31,9 +33,8 @@
         
         ?></td>
                 <td><?php echo $id; ?></td>
-                <td class="liste"><?php echo $rows['etat']; ?></td>
                 <td><?php echo $rows['date_ouvert']; ?></td>
-                
+                <td class="liste"><?php echo $rows['etat']; ?></td>
                 <form id="assignForm" action="listP.php" method="POST">
                 <input type="hidden" name="rid" value="<?php echo $rows['id']; ?>">
                 <input type="hidden" name="eid" value="<?php echo $_SESSION['id'];?>"> 
@@ -48,7 +49,7 @@
                 {
                     if($rows['etat'] != 'En cours'){
                         ?>
-                        <a href="rec-details.php?rid=<?php echo $rows['id'];  ?>&eid=<?php echo $rows['eid'];  ?>">Details...</a>
+                        <a href="rec-details.php?rid=<?php echo $rows['id'];  ?>&eid=<?php echo $rows['eid'];  ?>&action=details">Details...</a>
                         <?php
                     }
                     
@@ -65,6 +66,7 @@
                 <td><?php echo $id; ?></td>
                 <td><?php echo $rows['date_ouvert']; ?></td>
                 <td class="liste"><?php echo $rows['etat']; ?></td>
+                <td><?php echo $rows['priorite']; ?></td>
                 
                 
                 <form id="assignForm" action="listP.php" method="POST">
@@ -85,9 +87,7 @@
                     }
                     
                 }
-            }else{
-                echo "<p style='color:#fff;'>No records found.</p>";
-            } ?>
+            }?>
                 </td>
                 
                 </form>
@@ -102,16 +102,23 @@
 
                     
     </table>
-    
+
+    <?php
+    if($_SESSION['dep'] == "IT" || $_SESSION['username'] == "admin")
+    echo '<button id="export" onclick="exportData()">Enregistrer q un fichier excel</button>';
+    ?>
     
     <script src="js/statusColor.js"></script>
     <script src="js/table2excel.js"></script>
     <script src="js/toExcel.js"></script>
     <style>
-        .container-list{
-            position: relative;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 18px;
             height: 100vh;
-            background-color: #1c1c1e;
         }
                 .text-success{
             background-color: #45a049;
@@ -120,11 +127,10 @@
             background-color: red;
         }
     #students-table {
-        position: absolute;
-        top: 150px;
         width: 100%;
         border-collapse: collapse;
         font-family: Arial, sans-serif;
+
     }
 
     #students-table th,

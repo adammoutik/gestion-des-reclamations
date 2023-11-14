@@ -1,7 +1,7 @@
 <?php
 
 
-
+//get user data by id
 
 function getUserData($eid){
     require_once "db.in.php";
